@@ -17,6 +17,11 @@ const Audio = NativeModules.Audio
       }
     );
 
+import AudioSdk from './audio-sdk/AudioSdk';
+import Device from './audio-sdk/models/Device';
+
 export function multiply(a: number, b: number): Promise<number> {
   return Audio.multiply(a, b);
 }
+
+export { AudioSdk, Device };

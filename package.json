@@ -69,7 +69,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-webrtc": "^1.92.2"
   },
   "jest": {
     "preset": "react-native",
