@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View, Button } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AudioSdk, Device } from 'react-native-audio';
+import { AudioSdk, Device } from 'react-native-audio-library';
 
 import {
   Call,
   ConferenceLiveArray,
   LoginScreen,
   VertoClient,
+  VertoInstanceManager,
   VertoParams,
   VertoView,
   ViewType,
@@ -19,6 +20,7 @@ let audioSdk: AudioSdk;
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [vertoClient, setVertoClient] = useState<VertoClient>();
   const [vertoParams, setVertoParams] = useState({
     webSocket: {
       url: '',
@@ -127,16 +129,27 @@ export default function App() {
 
   const checkLoginParams = async () => {
     const loginValue = await AsyncStorage.getItem('login');
-    if (loginValue != null) {
+    if(loginValue != null) {
       const loginParams = JSON.parse(loginValue);
 
       setVertoAuthParams(loginParams);
-
-      if (loginParams.password) {
+      
+      if(loginParams.password) {
         setLoggedIn(true);
+
+        const tmpVertoClient = VertoInstanceManager.createInstance(
+          {
+            ...vertoParams,
+            webSocket: loginParams
+          }, 
+          callbacks,
+          true
+        )
+    
+        setVertoClient(tmpVertoClient);
       }
     }
-  };
+  }
 
   const checkCallParams = () => {
     if (!callParams) {
@@ -228,16 +241,18 @@ export default function App() {
         />
       )}
       {loggedIn && (
-        <VertoView
+        <VertoView 
           callState={callState}
-          callParams={callParams}
+          callParams={callParams} 
           isAudioOff={audioState}
           isCameraOff={cameraState}
-          isToolboxVisible={false}
-          viewType={ViewType.remote}
-          vertoParams={vertoParams}
-          callbacks={callbacks}
+          isCallScreenVisible={true}
+          isRemoteAudioOff={false}
+          isToolboxVisible={true}
           onLogoutClicked={onLogoutClicked}
+          showLogs={true}
+          viewKey="view1"
+          viewType={ViewType.both} 
         />
       )}
       {
