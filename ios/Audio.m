@@ -88,8 +88,8 @@ RCT_EXPORT_MODULE();
         
         silentCallConfig = [[RTCAudioSessionConfiguration alloc] init];
         silentCallConfig.category = AVAudioSessionCategoryAmbient;
-        silentCallConfig.categoryOptions = AVAudioSessionCategoryOptionAllowBluetooth;
-        silentCallConfig.mode = AVAudioSessionModeVideoChat;
+        silentCallConfig.categoryOptions = 0;
+        silentCallConfig.mode = AVAudioSessionModeDefault;
 
         audioCallConfig = [[RTCAudioSessionConfiguration alloc] init];
         audioCallConfig.category = AVAudioSessionCategoryPlayAndRecord;
