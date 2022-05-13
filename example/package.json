@@ -13,7 +13,7 @@
     "react": "17.0.2",
     "react-native": "0.66.3",
     "react-native-background-timer": "^2.4.1",
-    "react-native-verto-typescript": "^0.1.1",
+    "react-native-verto-typescript": "^0.2.36",
     "react-native-webrtc": "^1.92.2"
   },
   "devDependencies": {

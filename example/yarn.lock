@@ -14,7 +14,7 @@
   "resolved" "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.16.4.tgz"
   "version" "7.16.4"
 
-"@babel/core@*", "@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.1.6", "@babel/core@^7.12.0", "@babel/core@^7.12.10", "@babel/core@^7.13.0", "@babel/core@^7.14.0", "@babel/core@^7.4.0-0":
+"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.1.6", "@babel/core@^7.12.0", "@babel/core@^7.12.10", "@babel/core@^7.13.0", "@babel/core@^7.14.0", "@babel/core@^7.4.0-0":
   "integrity" "sha512-mYZEvshBRHGsIAiyH5PzCFTCfbWfoYbO/jcSdXQSUQu1/pW0xDZAUP7KEc32heqWTAfAHhV9j1vH8Sav7l+JNQ=="
   "resolved" "https://registry.npmjs.org/@babel/core/-/core-7.16.0.tgz"
   "version" "7.16.0"
@@ -3807,15 +3807,12 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
-"react-native-verto-typescript@^0.1.1":
-  "integrity" "sha512-QeqNjchXEmTkkKPty5Rlay8Stj6S3HOKbOrmpP/RB9OiSkRkfh1Mw6Zc8TkLw3LG8qGSGUVZTAyVzG5wBGW7XA=="
-  "resolved" "https://registry.npmjs.org/react-native-verto-typescript/-/react-native-verto-typescript-0.1.1.tgz"
-  "version" "0.1.1"
-  dependencies:
-    "react-native-background-timer" "^2.4.1"
-    "react-native-webrtc" "^1.92.2"
+"react-native-verto-typescript@^0.2.36":
+  "integrity" "sha512-H02f7+NDa1LaRGmq+slRS6IKK1p+Muy4eoDV5TiUbduQgYKmTgQYkm4zOwdwH0JExeJkSCNhDFNyQutI2q4ygw=="
+  "resolved" "https://registry.npmjs.org/react-native-verto-typescript/-/react-native-verto-typescript-0.2.36.tgz"
+  "version" "0.2.36"
 
-"react-native-webrtc@^1.92.2":
+"react-native-webrtc@^1.92.2", "react-native-webrtc@>=1.87.3":
   "integrity" "sha512-VmkKCwMYL/ZsLqNFX+Rqxwf3ZfHuJRfF2AZ+dQ1ZZ8O1Pg4LeZNisZo6djl9bze0fNhj7eMJTwnzk/kK2mW0hg=="
   "resolved" "https://registry.npmjs.org/react-native-webrtc/-/react-native-webrtc-1.94.0.tgz"
   "version" "1.94.0"

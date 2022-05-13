@@ -8,7 +8,7 @@ target 'AudioExample' do
 
   use_react_native!(:path => config["reactNativePath"])
 
-  pod 'react-native-audio', :path => '../..'
+  pod 'react-native-audio-library', :path => '../..'
 
   # Enables Flipper.
   #
