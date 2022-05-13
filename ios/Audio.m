@@ -17,6 +17,7 @@
 // Audio mode
 typedef enum {
     kAudioModeDefault,
+    kAudioModeSilent,
     kAudioModeAudioCall,
     kAudioModeVideoCall
 } AudioMode;
@@ -41,6 +42,7 @@ static NSString * const kDeviceTypeUnknown    = @"UNKNOWN";
 @implementation Audio {
     AudioMode activeMode;
     RTCAudioSessionConfiguration *defaultConfig;
+    RTCAudioSessionConfiguration *silentCallConfig;
     RTCAudioSessionConfiguration *audioCallConfig;
     RTCAudioSessionConfiguration *videoCallConfig;
     RTCAudioSessionConfiguration *earpieceConfig;
@@ -65,6 +67,7 @@ RCT_EXPORT_MODULE();
         @"DEVICE_CHANGE_EVENT": kDevicesChanged,
         @"AUDIO_CALL" : [NSNumber numberWithInt: kAudioModeAudioCall],
         @"DEFAULT"    : [NSNumber numberWithInt: kAudioModeDefault],
+        @"SILENT"     : [NSNumber numberWithInt: kAudioModeSilent],
         @"VIDEO_CALL" : [NSNumber numberWithInt: kAudioModeVideoCall]
     };
 };
@@ -82,6 +85,11 @@ RCT_EXPORT_MODULE();
         defaultConfig.category = AVAudioSessionCategoryAmbient;
         defaultConfig.categoryOptions = 0;
         defaultConfig.mode = AVAudioSessionModeDefault;
+        
+        silentCallConfig = [[RTCAudioSessionConfiguration alloc] init];
+        silentCallConfig.category = AVAudioSessionCategoryPlayback;
+        silentCallConfig.categoryOptions = AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker;
+        silentCallConfig.mode = AVAudioSessionModeVideoChat;
 
         audioCallConfig = [[RTCAudioSessionConfiguration alloc] init];
         audioCallConfig.category = AVAudioSessionCategoryPlayAndRecord;
@@ -290,6 +298,8 @@ RCT_EXPORT_METHOD(updateDeviceList) {
             return audioCallConfig;
         case kAudioModeDefault:
             return defaultConfig;
+        case kAudioModeSilent:
+            return silentCallConfig;
         case kAudioModeVideoCall:
             return videoCallConfig;
         default:

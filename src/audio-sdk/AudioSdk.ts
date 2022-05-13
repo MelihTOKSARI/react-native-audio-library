@@ -53,11 +53,13 @@ export default class AudioSdk {
    * @public
    * @returns {void}.
    */
-  public updateAudioMode(inCall?: boolean, isVideo?: boolean): void {
+  public updateAudioMode(inCall?: boolean, isVideo?: boolean, isSilent?: boolean): void {
     this.mode = inCall
-      ? isVideo
-        ? Audio.VIDEO_CALL
-        : Audio.AUDIO_CALL
+      ? isSilent
+        ? Audio.SILENT
+        : isVideo
+          ? Audio.VIDEO_CALL
+          : Audio.AUDIO_CALL
       : Audio.DEFAULT;
 
     Audio.setMode(this.mode).catch((err: any) =>
