@@ -209,7 +209,7 @@ PODS:
   - React-jsinspector (0.66.3)
   - React-logger (0.66.3):
     - glog
-  - react-native-audio-library (0.2.5):
+  - react-native-audio-library (0.2.6):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -420,7 +420,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 433a691aee158533a6a6ee9c86cb4a1684fa2853
   React-jsinspector: d9c8eb0b53f0da206fed56612b289fec84991157
   React-logger: e522e76fa3e9ec3e7d7115b49485cc065cf4ae06
-  react-native-audio-library: b404b58e98e3a39c7fe541a9487fada4cc49eb8e
+  react-native-audio-library: fb699bbab2250b5e6616ee0b7c2281aa75170e3a
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-verto-typescript: 4770692114b71307f5eda9296b2e1071d71d04a3
   react-native-webrtc: e22646adc86f2009328b21eb0e40ca404c77258c
