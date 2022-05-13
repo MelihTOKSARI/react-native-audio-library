@@ -268,7 +268,10 @@ export default function App() {
               renderItem={(item: any) => renderAudioDevice(item.item)}
             />
           )}
-          <Button title={'Update Devices'} onPress={() => updateDevices()} />
+          <View>
+            <Button title='Silence' onPress={() => audioSdk.updateAudioMode(false, true, true)} />
+            <Button title={'Update Devices'} onPress={() => updateDevices()} />
+          </View>
         </View>
       }
     </View>
