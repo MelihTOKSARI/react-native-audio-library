@@ -243,7 +243,6 @@ export default function App() {
       {loggedIn && (
         <VertoView 
           callState={callState}
-          callParams={callParams} 
           isAudioOff={audioState}
           isCameraOff={cameraState}
           isCallScreenVisible={true}
