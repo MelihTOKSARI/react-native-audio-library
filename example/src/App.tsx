@@ -227,6 +227,13 @@ export default function App() {
     );
   };
 
+  const onSilencePressed = () => {
+    audioSdk.updateAudioMode(true, true, true);
+    setTimeout(() => {
+      audioSdk.updateAudioMode(true, true, true);
+    }, 5000);
+  }
+
   return (
     <View
       style={{
@@ -269,7 +276,7 @@ export default function App() {
             />
           )}
           <View>
-            <Button title='Silence' onPress={() => audioSdk.updateAudioMode(false, true, true)} />
+            <Button title='Silence' onPress={onSilencePressed} />
             <Button title={'Update Devices'} onPress={() => updateDevices()} />
           </View>
         </View>
