@@ -8036,7 +8036,7 @@
   optionalDependencies:
     "jetifier" "^1.6.6"
 
-"react-native-webrtc@^1.92.2":
+"react-native-webrtc@>=1.87.3":
   "integrity" "sha512-VmkKCwMYL/ZsLqNFX+Rqxwf3ZfHuJRfF2AZ+dQ1ZZ8O1Pg4LeZNisZo6djl9bze0fNhj7eMJTwnzk/kK2mW0hg=="
   "resolved" "https://registry.npmjs.org/react-native-webrtc/-/react-native-webrtc-1.94.0.tgz"
   "version" "1.94.0"
