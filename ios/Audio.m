@@ -142,6 +142,21 @@ RCT_EXPORT_MODULE();
     return success;
 }
 
+- (void)setInputGain:(CGFloat)gain
+{
+   AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+   if (audioSession.isInputGainSettable) {
+     NSError *error = nil;
+     BOOL success = [audioSession setInputGain:gain error:&error];
+     if (!success) {
+       NSLog(@"[AudioMode-setInputGain] %@", error);
+     }
+   }
+   else {
+     NSLog(@"[AudioMode-setInputGain] Cannot set input gain");
+   }
+}
+
 #pragma mark - Exported methods
 
 RCT_EXPORT_METHOD(setMode:(int)mode
@@ -149,20 +164,21 @@ RCT_EXPORT_METHOD(setMode:(int)mode
                    reject:(RCTPromiseRejectBlock)reject) {
     RTCAudioSessionConfiguration *config = [self configForMode:mode];
     NSError *error;
-
+    
     if (config == nil) {
         reject(@"setMode", @"Invalid mode", nil);
         return;
     }
-
+    
     // Reset.
-    if (mode == kAudioModeDefault) {
+    if (mode == kAudioModeDefault || mode == kAudioModeSilent) {
         forceSpeaker = NO;
         forceEarpiece = NO;
+        [self setInputGain:0.0];
     }
-
+    
     activeMode = mode;
-
+    
     if ([self setConfig:config error:&error]) {
         resolve(nil);
     } else {
